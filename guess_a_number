@@ -1,0 +1,31 @@
+# importing  randint method from random
+from random import randint
+
+print("Welcome to the Number guessing game!".title())
+print("I'm thinking of a number between 1 and 100.".title())
+difficulty_level = input(
+    "Choose a difficulty level. Type 'easy' or 'hard':- ").lower()
+guess_num = randint(1, 100)
+if (difficulty_level == "easy"):
+  count = 10
+elif (difficulty_level == "hard"):
+  count = 5
+
+else:
+  print("Wrong choice of difficulty level")
+  exit(1)
+n = 0
+while (count > 0):
+  print(f"You have {count} chances to guess the number")
+  n += 1
+  num = int(input("Guess a number:  "))
+  if (num == guess_num):
+    print(f"You guessed it correctly in {n} chances.You win!")
+    break
+  elif (num > guess_num):
+    print("Too high")
+  else:
+    print("Too low")
+  count -= 1
+else:
+  print("oops you loose!".title())
